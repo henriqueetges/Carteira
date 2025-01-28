@@ -1,9 +1,9 @@
 from requests import get
 import pandas as pd
-from env.config import Config
+from env.config import configs
 
-config = Config('production')
-API_KEY = config.get_var('BRAPI_KEY')
+
+API_KEY = configs.BRAPI_KEY
 
 class Stock:
     instances = {}
@@ -60,4 +60,3 @@ class Stock:
         df = pd.DataFrame(data['results'])
         return df
 
-print(API_KEY)

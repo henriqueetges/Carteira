@@ -14,6 +14,11 @@ class Config:
     def __init__(self, env):
         self.env = env
         self.config = self.load_config()  
+        self.DB_USER = self.get_var('database_user')
+        self.DB_PW = self.get_var('database_pw')
+        self.DB_HOST = self.get_var('database_host')
+        self.DB_PORT = self.get_var('database_port')
+        self.BRAPI_KEY = self.get_var('brapi_key')
     
     def load_config(self):
         with open('app\env\env.yaml','r') as f:
@@ -23,3 +28,5 @@ class Config:
     def get_var(self, key, default=None):
         return self.config.get(key, default)
     
+
+configs = Config('production')

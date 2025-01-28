@@ -1,4 +1,4 @@
-from db import connect
+from db import connection
 from models.stock import Stock
 import datetime
 import pandas as pd
@@ -23,7 +23,7 @@ class Transacao:
 
 
     def insert_into_db(self):
-        with connect() as conn:
+        with connection() as conn:
             with conn.cursor() as cur:
                 insert_query = """
                 INSERT INTO inv.public.transac(ticker, price, quantity, transac_date)
@@ -35,7 +35,7 @@ class Transacao:
     @classmethod
     def get_from_backend(cls):
         cls.instances.clear()
-        conn = connect()
+        conn = connection()
         results = pd.read_sql_query("SELECT * FROM inv.public.transac", conn)
         for _, row in results.iterrows():
             Transacao(ticker=row['ticker'], 
