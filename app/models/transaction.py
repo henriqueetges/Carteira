@@ -1,6 +1,7 @@
-from ..db import connect
-from app.models.stock import Stock
+from db import connect
+from models.stock import Stock
 import datetime
+import pandas as pd
 
 
 class Transacao:

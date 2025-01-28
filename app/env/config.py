@@ -16,7 +16,7 @@ class Config:
         self.config = self.load_config()  
     
     def load_config(self):
-        with open('env\\env.yaml','r') as f:
+        with open('app\env\env.yaml','r') as f:
             config_data = yaml.load(f, Loader=yaml.SafeLoader)
         return config_data['environments'].get(self.env)
     

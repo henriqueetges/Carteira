@@ -1,9 +1,9 @@
 from requests import get
 import pandas as pd
-from app.env.config import Config
+from env.config import Config
 
 config = Config('production')
-API_KEY = config.get('BRAPI_KEY')
+API_KEY = config.get_var('BRAPI_KEY')
 
 class Stock:
     instances = {}
