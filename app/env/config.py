@@ -29,4 +29,4 @@ class Config:
         return self.config.get(key, default)
     
 
-configs = Config('production')
+configs = Config('testing')
