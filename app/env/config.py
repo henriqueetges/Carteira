@@ -5,7 +5,7 @@ def env_construct(loader, node):
     env_var = loader.construct_scalar(node)
     value = os.getenv(env_var)
     if value is None:
-        return ValueError(f"Variável {env_var} não encontrada no ambiente")
+        raise ValueError(f"Variável {env_var} não encontrada no ambiente")
     return value
 
 yaml.add_constructor('!ENV', env_construct, Loader=yaml.SafeLoader)
