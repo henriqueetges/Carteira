@@ -1,10 +1,4 @@
-from db.connection import connect
-from models.stock import Stock
-from models.transaction import Transacao
+from integration.data_loading import full_load_history
 
-with connect() as conn:
-    with conn.cursor() as cur:
-        cur.execute('SELECT VERSION();')
-        version = cur.fetchone()
-
-print(version)
+x = full_load_history()
+print(x)
